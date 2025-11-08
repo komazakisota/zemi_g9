@@ -27,12 +27,12 @@ $username = get_current_username();
     <!-- ヘッダー -->
     <header class="header">
         <div class="header-left">
-            <h1 class="app-title">課題管理システム</h1>
+            <h1 class="app-title">DS授業・課題管理サイト</h1>
         </div>
         <div class="header-center">
             <nav class="tabs">
-                <a href="home.php" class="tab active">Home</a>
-                <a href="class-evaluation.php" class="tab">Class Evaluation</a>
+                <a href="home.php" class="tab active">課題管理</a>
+                <a href="class-evaluation.php" class="tab">授業評価</a>
             </nav>
         </div>
         <div class="header-right">
@@ -84,7 +84,7 @@ $username = get_current_username();
                 <div class="assignment-controls">
                     <div class="filter-buttons">
                         <button class="filter-btn active" data-filter="incomplete">未提出</button>
-                        <button class="filter-btn" data-filter="completed">完了済み</button>
+                        <button class="filter-btn" data-filter="completed">提出済み</button>
                     </div>
                     <div class="assignment-actions">
                         <button class="btn btn-secondary btn-sm" onclick="resetAssignmentOrder()">

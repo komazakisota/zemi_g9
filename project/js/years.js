@@ -31,7 +31,37 @@ async function loadYears(courseId) {
         
         if (data.success) {
             years = data.years;
+            const previousYearId = selectedYearId; // 前に選択していた年度IDを保存
             renderYearSelect();
+            
+            // 前回選択していた年度がこの授業にも存在するか確認
+            const yearExists = years.find(y => y.course_year_id === previousYearId);
+            
+            if (yearExists) {
+                // 前回の年度が存在する場合はそれを維持
+                selectedYearId = previousYearId;
+                document.getElementById('year-select').value = selectedYearId;
+                
+                // UIを表示
+                document.getElementById('assignment-area').style.display = 'block';
+                document.getElementById('initial-message').style.display = 'none';
+                document.getElementById('open-chat-btn').style.display = 'inline-block';
+                
+                // 課題を読み込む
+                loadAssignments(selectedYearId);
+            } else if (years.length > 0) {
+                // 前回の年度が存在しない場合は最新年度を自動選択
+                const latestYear = years[0];
+                selectedYearId = latestYear.course_year_id;
+                
+                document.getElementById('year-select').value = selectedYearId;
+                
+                document.getElementById('assignment-area').style.display = 'block';
+                document.getElementById('initial-message').style.display = 'none';
+                document.getElementById('open-chat-btn').style.display = 'inline-block';
+                
+                loadAssignments(selectedYearId);
+            }
         }
     } catch (error) {
         console.error('Error loading years:', error);

@@ -49,9 +49,13 @@ try {
     $stmt->execute([$user_id, $user_id, $course_year_id]);
     $assignments = $stmt->fetchAll();
     
-    // is_completedをbooleanに変換
+    // データ型を変換
     foreach ($assignments as &$assignment) {
-        $assignment['is_completed'] = (bool)$assignment['is_completed'];
+        // is_completedをbooleanに変換（PostgreSQLは't'/'f'または true/false）
+        $assignment['is_completed'] = $assignment['is_completed'] === 't' || $assignment['is_completed'] === true;
+        
+        // avg_ratingを数値に変換
+        $assignment['avg_rating'] = $assignment['avg_rating'] ? (float)$assignment['avg_rating'] : null;
     }
     
     json_success([

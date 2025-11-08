@@ -1,64 +1,20 @@
 /**
- * HomeタブのCSS
+ * HomeタブのCSS - ダークテーマ
  */
-
-/* ==================== ヘッダー ==================== */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-    background-color: white;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.app-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #333;
-}
-
-.tabs {
-    display: flex;
-    gap: 8px;
-}
-
-.tab {
-    padding: 8px 20px;
-    border-radius: 6px;
-    font-weight: 500;
-    color: #666;
-    transition: all 0.3s ease;
-}
-
-.tab:hover {
-    background-color: #f5f5f5;
-    text-decoration: none;
-}
-
-.tab.active {
-    background-color: #4A90E2;
-    color: white;
-}
-
-.username {
-    margin-right: 12px;
-    font-weight: 500;
-    color: #555;
-}
 
 /* ==================== メインコンテナ ==================== */
 .main-container {
     display: flex;
     height: calc(100vh - 72px);
+    background: var(--bg-primary);
 }
 
 /* ==================== サイドバー ==================== */
 .sidebar {
     width: 280px;
-    background-color: white;
-    border-right: 1px solid #e0e0e0;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border-color);
     overflow-y: auto;
 }
 
@@ -67,13 +23,13 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .sidebar-header h2 {
     font-size: 16px;
     font-weight: 600;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .course-list {
@@ -83,20 +39,24 @@
 .course-item {
     padding: 12px 16px;
     margin-bottom: 8px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background: rgba(17, 34, 64, 0.6);
+    border: 1px solid transparent;
+    border-radius: 10px;
     cursor: move;
     transition: all 0.3s ease;
 }
 
 .course-item:hover {
-    background-color: #e9ecef;
+    background: rgba(74, 144, 226, 0.1);
+    border-color: var(--accent-primary);
     transform: translateX(4px);
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
 }
 
 .course-item.active {
-    background-color: #e7f5ff;
-    border-left: 4px solid #4A90E2;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(74, 144, 226, 0.15));
+    border-left: 4px solid var(--accent-primary);
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
 }
 
 .course-item.dragging {
@@ -105,13 +65,14 @@
 
 .course-name {
     font-weight: 500;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .course-rating {
     font-size: 12px;
-    color: #FFD700;
+    color: var(--accent-warning);
+    filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.5));
 }
 
 /* ==================== メインコンテンツ ==================== */
@@ -119,7 +80,6 @@
     flex: 1;
     padding: 24px;
     overflow-y: auto;
-    background-color: #f8f9fa;
 }
 
 .control-bar {
@@ -128,9 +88,11 @@
     justify-content: space-between;
     margin-bottom: 24px;
     padding: 16px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .control-left {
@@ -148,16 +110,24 @@
 
 .form-group-inline label {
     font-weight: 500;
-    color: #555;
+    color: var(--text-secondary);
     white-space: nowrap;
 }
 
 .form-control {
     padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     font-size: 14px;
     min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
 }
 
 .initial-message {
@@ -166,7 +136,7 @@
     justify-content: center;
     height: 400px;
     font-size: 16px;
-    color: #666;
+    color: var(--text-muted);
 }
 
 /* ==================== 課題エリア ==================== */
@@ -188,22 +158,25 @@
 
 .filter-btn {
     padding: 8px 16px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .filter-btn:hover {
-    background-color: #f5f5f5;
+    background: var(--bg-hover);
+    border-color: var(--accent-primary);
 }
 
 .filter-btn.active {
-    background-color: #4A90E2;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     color: white;
-    border-color: #4A90E2;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
 }
 
 .assignment-actions {
@@ -223,21 +196,24 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     cursor: move;
     transition: all 0.3s ease;
 }
 
 .assignment-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 217, 255, 0.25);
     transform: translateY(-2px);
+    border-color: var(--accent-primary);
 }
 
 .assignment-card.completed {
     opacity: 0.6;
-    background-color: #f8f9fa;
+    background: rgba(17, 34, 64, 0.4);
 }
 
 .assignment-card.dragging {
@@ -262,7 +238,7 @@
 .assignment-name {
     font-size: 16px;
     font-weight: 600;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .assignment-meta {
@@ -270,27 +246,29 @@
     align-items: center;
     gap: 16px;
     font-size: 13px;
-    color: #666;
+    color: var(--text-secondary);
 }
 
 .assignment-rating {
     display: flex;
     align-items: center;
     gap: 4px;
-    color: #FFD700;
+    color: var(--accent-warning);
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .assignment-rating:hover {
-    opacity: 0.8;
+    color: #fbbf24;
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
 }
 
 .assignment-deadline {
-    color: #666;
+    color: var(--text-secondary);
 }
 
 .assignment-deadline.overdue {
-    color: #FF6B6B;
+    color: var(--accent-danger);
     font-weight: 600;
 }
 
@@ -309,17 +287,18 @@
     height: 400px;
     overflow-y: auto;
     padding: 16px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background: var(--bg-primary);
+    border-radius: 12px;
     margin-bottom: 16px;
+    border: 1px solid var(--border-color);
 }
 
 .chat-message {
     margin-bottom: 16px;
     padding: 12px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
 }
 
 .chat-message-header {
@@ -331,16 +310,16 @@
 
 .chat-username {
     font-weight: 600;
-    color: #4A90E2;
+    color: var(--accent-primary);
 }
 
 .chat-time {
     font-size: 12px;
-    color: #999;
+    color: var(--text-muted);
 }
 
 .chat-text {
-    color: #333;
+    color: var(--text-primary);
     line-height: 1.5;
 }
 
@@ -363,17 +342,19 @@
 #rating-input span {
     cursor: pointer;
     transition: all 0.2s ease;
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.3));
 }
 
 #rating-input span:hover,
 #rating-input span.selected {
-    color: #FFD700;
-    transform: scale(1.1);
+    color: var(--accent-warning);
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
 }
 
 .help-text {
     font-size: 12px;
-    color: #999;
+    color: var(--text-muted);
     margin-top: 8px;
 }
 
@@ -381,19 +362,22 @@
 .evaluation-summary {
     margin-bottom: 24px;
     padding: 16px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background: rgba(0, 217, 255, 0.05);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    border-radius: 12px;
     text-align: center;
 }
 
 .evaluation-summary h3 {
     font-size: 18px;
     margin-bottom: 8px;
+    color: var(--text-primary);
 }
 
 .evaluation-summary .rating-large {
     font-size: 32px;
-    color: #FFD700;
+    color: var(--accent-warning);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
 }
 
 .evaluation-section {
@@ -404,19 +388,21 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 12px;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .evaluation-item {
     padding: 12px;
     margin-bottom: 12px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background: rgba(17, 34, 64, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
 }
 
 .evaluation-item.my-evaluation {
-    background-color: #e7f5ff;
-    border-left: 4px solid #4A90E2;
+    background: rgba(0, 217, 255, 0.1);
+    border-left: 4px solid var(--accent-primary);
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.15);
 }
 
 .evaluation-header {
@@ -428,21 +414,22 @@
 
 .evaluation-user {
     font-weight: 600;
-    color: #4A90E2;
+    color: var(--accent-primary);
 }
 
 .evaluation-date {
     font-size: 12px;
-    color: #999;
+    color: var(--text-muted);
 }
 
 .evaluation-rating {
-    color: #FFD700;
+    color: var(--accent-warning);
     margin-bottom: 8px;
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.3));
 }
 
 .evaluation-comment {
-    color: #555;
+    color: var(--text-secondary);
     line-height: 1.5;
 }
 
@@ -457,21 +444,7 @@
     align-items: center;
     gap: 6px;
     cursor: pointer;
-}
-
-/* ==================== ローディング・メッセージ ==================== */
-.loading-text {
-    text-align: center;
-    color: #999;
-    padding: 32px;
-}
-
-.empty-message {
-    text-align: center;
-    color: #999;
-    padding: 48px;
-    background-color: white;
-    border-radius: 8px;
+    color: var(--text-secondary);
 }
 
 /* ==================== レスポンシブ ==================== */

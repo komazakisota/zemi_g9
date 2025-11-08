@@ -81,7 +81,7 @@ function renderAssignmentList() {
     assignmentList.innerHTML = filteredAssignments.map(assignment => {
         const deadlineText = formatDeadline(assignment.deadline, assignment.has_time);
         const isOverdue = isDeadlineOverdue(assignment.deadline);
-        const avgRating = assignment.avg_rating || 0;
+        const avgRating = parseFloat(assignment.avg_rating) || 0;
         const ratingStars = avgRating > 0 ? '★'.repeat(Math.round(avgRating)) + '☆'.repeat(5 - Math.round(avgRating)) : '☆☆☆☆☆';
         
         return `

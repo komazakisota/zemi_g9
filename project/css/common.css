@@ -1,8 +1,31 @@
 /**
- * 共通CSS
- * 
- * アプリ全体で使用するスタイル
+ * 共通CSS - ダークテーマ（データサイエンス風）
  */
+
+/* ==================== カラー変数 ==================== */
+:root {
+    /* ダークベース */
+    --bg-primary: #0a192f;
+    --bg-secondary: #112240;
+    --bg-card: #1e293b;
+    --bg-hover: #2d3b55;
+    
+    /* アクセント */
+    --accent-primary: #00d9ff;
+    --accent-secondary: #4A90E2;
+    --accent-success: #10b981;
+    --accent-warning: #f59e0b;
+    --accent-danger: #ef4444;
+    
+    /* テキスト */
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    /* ボーダー */
+    --border-color: #334155;
+    --border-light: #1e293b;
+}
 
 /* ==================== リセット ==================== */
 * {
@@ -13,21 +36,102 @@
 
 /* ==================== 基本スタイル ==================== */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    color: #333;
-    background-color: #f5f5f5;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    min-height: 100vh;
 }
 
 a {
-    color: #4A90E2;
+    color: var(--accent-primary);
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: var(--accent-secondary);
+    text-decoration: none;
+}
+
+/* ==================== ヘッダー ==================== */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-left,
+.header-center,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.app-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.tab {
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.tab::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: var(--accent-primary);
+    transition: transform 0.3s ease;
+}
+
+.tab:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.tab:hover::before {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.tab.active {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(74, 144, 226, 0.2));
+    color: var(--accent-primary);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.username {
+    margin-right: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
 /* ==================== ボタン ==================== */
@@ -38,14 +142,34 @@ a:hover {
     font-weight: 500;
     text-align: center;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .btn:active {
@@ -53,23 +177,27 @@ a:hover {
 }
 
 .btn-primary {
-    background-color: #4A90E2;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     color: white;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
 }
 
 .btn-secondary {
-    background-color: #6c757d;
-    color: white;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
 }
 
 .btn-success {
-    background-color: #50C878;
+    background: linear-gradient(135deg, #10b981, #059669);
     color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
 .btn-danger {
-    background-color: #FF6B6B;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
     color: white;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
 
 .btn-block {
@@ -89,9 +217,9 @@ a:hover {
 
 .form-group label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-weight: 500;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 input[type="text"],
@@ -103,18 +231,22 @@ input[type="time"],
 textarea,
 select {
     width: 100%;
-    padding: 10px 12px;
+    padding: 12px 16px;
     font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    transition: border-color 0.3s ease;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: #4A90E2;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+    background: var(--bg-secondary);
 }
 
 textarea {
@@ -124,30 +256,33 @@ textarea {
 
 /* ==================== メッセージ ==================== */
 .error-message {
-    padding: 12px;
+    padding: 12px 16px;
     margin-bottom: 16px;
-    background-color: #ffe6e6;
-    border: 1px solid #ffcccc;
-    border-radius: 6px;
-    color: #c92a2a;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-left: 4px solid var(--accent-danger);
+    border-radius: 8px;
+    color: #fca5a5;
 }
 
 .success-message {
-    padding: 12px;
+    padding: 12px 16px;
     margin-bottom: 16px;
-    background-color: #e6f7ed;
-    border: 1px solid #ccf0d9;
-    border-radius: 6px;
-    color: #2b8a3e;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-left: 4px solid var(--accent-success);
+    border-radius: 8px;
+    color: #6ee7b7;
 }
 
 .info-message {
-    padding: 12px;
+    padding: 12px 16px;
     margin-bottom: 16px;
-    background-color: #e7f5ff;
-    border: 1px solid #d0ebff;
-    border-radius: 6px;
-    color: #1971c2;
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 8px;
+    color: #7dd3fc;
 }
 
 /* ==================== モーダル ==================== */
@@ -158,7 +293,8 @@ textarea {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(5px);
     z-index: 1000;
     overflow-y: auto;
 }
@@ -170,26 +306,27 @@ textarea {
 }
 
 .modal-content {
-    background-color: white;
-    border-radius: 8px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
     padding: 24px;
     max-width: 600px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .modal-header {
     margin-bottom: 20px;
     padding-bottom: 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .modal-header h2 {
     font-size: 20px;
     font-weight: 600;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .modal-body {
@@ -200,28 +337,35 @@ textarea {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
 }
 
 /* ==================== カード ==================== */
 .card {
-    background-color: white;
-    border-radius: 8px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     padding: 16px;
     margin-bottom: 16px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 217, 255, 0.2);
+    border-color: var(--accent-primary);
 }
 
 /* ==================== 星評価 ==================== */
 .rating-stars {
     font-size: 20px;
-    color: #FFD700;
+    color: var(--accent-warning);
     cursor: pointer;
     user-select: none;
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.5));
 }
 
 .rating-stars span {
@@ -230,7 +374,7 @@ textarea {
 }
 
 .rating-stars span:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
 }
 
 /* ==================== ローディング ==================== */
@@ -238,8 +382,8 @@ textarea {
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 3px solid #f3f3f3;
-    border-top: 3px solid #4A90E2;
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--accent-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -247,6 +391,25 @@ textarea {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* ==================== スクロールバー ==================== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
 }
 
 /* ==================== ユーティリティ ==================== */
@@ -276,4 +439,20 @@ textarea {
 
 .hidden {
     display: none;
+}
+
+/* ==================== 空メッセージ ==================== */
+.empty-message {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 48px;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px dashed var(--border-color);
+    border-radius: 12px;
+}
+
+.loading-text {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 32px;
 }
