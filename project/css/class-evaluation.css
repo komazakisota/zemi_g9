@@ -1,0 +1,238 @@
+/**
+ * Class EvaluationタブのCSS
+ */
+
+/* ==================== ヘッダー（common.cssから追加） ==================== */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-left,
+.header-center,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.app-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.tab {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.tab:hover {
+    background-color: #f5f5f5;
+    text-decoration: none;
+}
+
+.tab.active {
+    background-color: #4A90E2;
+    color: white;
+}
+
+.username {
+    margin-right: 12px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* ==================== 評価コンテナ ==================== */
+.evaluation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+.evaluation-container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.evaluation-container .subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 32px;
+}
+
+.course-evaluation-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.course-evaluation-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.course-evaluation-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+.course-evaluation-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.course-rating-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.course-stars {
+    font-size: 20px;
+    color: #FFD700;
+}
+
+.course-rating-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.evaluation-status {
+    font-size: 13px;
+    color: #999;
+}
+
+.evaluation-status.evaluated {
+    color: #50C878;
+    font-weight: 500;
+}
+
+/* モーダル内評価フォーム */
+.evaluation-form-section {
+    margin-bottom: 24px;
+}
+
+.my-course-evaluation {
+    padding: 16px;
+    background-color: #e7f5ff;
+    border-left: 4px solid #4A90E2;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.my-course-evaluation h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.evaluation-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.other-evaluations {
+    margin-top: 24px;
+}
+
+.other-evaluations h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.course-evaluation-item {
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.course-evaluation-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.course-evaluation-user {
+    font-weight: 600;
+    color: #4A90E2;
+}
+
+.course-evaluation-date {
+    font-size: 12px;
+    color: #999;
+}
+
+.course-evaluation-rating {
+    color: #FFD700;
+    margin-bottom: 8px;
+}
+
+.course-evaluation-comment {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* 評価投稿フォーム */
+.rating-input-large {
+    font-size: 40px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.rating-input-large span {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 4px;
+}
+
+.rating-input-large span:hover,
+.rating-input-large span.selected {
+    color: #FFD700;
+    transform: scale(1.2);
+}
+
+/* 空メッセージ */
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 48px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* ローディング */
+.loading-text {
+    text-align: center;
+    color: #999;
+    padding: 32px;
+}

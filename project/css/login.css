@@ -1,0 +1,68 @@
+/**
+ * ログイン・登録画面用CSS
+ */
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.login-box h1 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.login-box .subtitle {
+    font-size: 16px;
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.login-box .form-group {
+    margin-bottom: 20px;
+}
+
+.login-box .register-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-box .register-link a {
+    color: #4A90E2;
+    font-weight: 500;
+}
+
+.test-account-info {
+    margin-top: 30px;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #666;
+}
+
+.test-account-info p {
+    margin: 4px 0;
+}
+
+.test-account-info strong {
+    color: #333;
+}
