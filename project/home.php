@@ -120,11 +120,7 @@ $username = get_current_username();
                         <input type="text" id="course-name" name="course_name" required
                                placeholder="例: 2025_web-db">
                     </div>
-                    <div class="form-group">
-                        <label for="course-description">説明（任意）</label>
-                        <textarea id="course-description" name="description" rows="3"
-                                  placeholder="授業の説明を入力"></textarea>
-                    </div>
+                    
                 </form>
             </div>
             <div class="modal-footer">

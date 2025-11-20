@@ -4,11 +4,21 @@
 
 let years = [];
 let selectedYearId = null;
+let selectedYearNumber = null; // 年度の数字を保存（例: 2024, 2025）
 
 // 年度選択イベント
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('year-select').addEventListener('change', function() {
         selectedYearId = this.value ? parseInt(this.value) : null;
+        
+        // 選択した年度の数字を保存
+        if (selectedYearId) {
+            const selectedYear = years.find(y => y.course_year_id === selectedYearId);
+            if (selectedYear) {
+                selectedYearNumber = selectedYear.year;
+            }
+        }
+        
         if (selectedYearId) {
             document.getElementById('assignment-area').style.display = 'block';
             document.getElementById('initial-message').style.display = 'none';
@@ -31,35 +41,33 @@ async function loadYears(courseId) {
         
         if (data.success) {
             years = data.years;
-            const previousYearId = selectedYearId; // 前に選択していた年度IDを保存
             renderYearSelect();
             
-            // 前回選択していた年度がこの授業にも存在するか確認
-            const yearExists = years.find(y => y.course_year_id === previousYearId);
+            // 前回選択していた年度の「数字」（例: 2024）で探す
+            let yearToSelect = null;
             
-            if (yearExists) {
-                // 前回の年度が存在する場合はそれを維持
-                selectedYearId = previousYearId;
-                document.getElementById('year-select').value = selectedYearId;
-                
-                // UIを表示
-                document.getElementById('assignment-area').style.display = 'block';
-                document.getElementById('initial-message').style.display = 'none';
-                document.getElementById('open-chat-btn').style.display = 'inline-block';
-                
-                // 課題を読み込む
-                loadAssignments(selectedYearId);
+            if (selectedYearNumber) {
+                // 同じ年度の数字（例: 2024）があるか確認
+                yearToSelect = years.find(y => y.year === selectedYearNumber);
+            }
+            
+            if (yearToSelect) {
+                // 同じ年度が存在する場合はそれを維持
+                selectedYearId = yearToSelect.course_year_id;
+                selectedYearNumber = yearToSelect.year;
             } else if (years.length > 0) {
-                // 前回の年度が存在しない場合は最新年度を自動選択
+                // 存在しない場合は最新年度を自動選択
                 const latestYear = years[0];
                 selectedYearId = latestYear.course_year_id;
-                
+                selectedYearNumber = latestYear.year;
+            }
+            
+            // UIを更新
+            if (selectedYearId) {
                 document.getElementById('year-select').value = selectedYearId;
-                
                 document.getElementById('assignment-area').style.display = 'block';
                 document.getElementById('initial-message').style.display = 'none';
                 document.getElementById('open-chat-btn').style.display = 'inline-block';
-                
                 loadAssignments(selectedYearId);
             }
         }
