@@ -152,12 +152,35 @@ function isDeadlineOverdue(deadline) {
 /**
  * 課題追加モーダルを開く
  */
-function openAddAssignmentModal() {
+async function openAddAssignmentModal() {
     if (!selectedYearId) {
         alert('先に年度を選択してください');
         return;
     }
     document.getElementById('add-assignment-modal').classList.add('active');
+    
+    // 課題名の候補を取得
+    try {
+        const selectedYear = years.find(y => y.course_year_id === selectedYearId);
+        if (!selectedYear) return;
+        
+        const response = await fetch(
+            `api/assignments/get_assignment_names.php?course_id=${selectedCourseId}&year=${selectedYear.year}`
+        );
+        const data = await response.json();
+        
+        if (data.success && data.assignment_names.length > 0) {
+            const assignmentInput = document.getElementById('assignment-name');
+            
+            if (assignmentAutocomplete) {
+                assignmentAutocomplete.updateSuggestions(data.assignment_names);
+            } else {
+                assignmentAutocomplete = new Autocomplete(assignmentInput, data.assignment_names);
+            }
+        }
+    } catch (error) {
+        console.error('Error loading assignment names:', error);
+    }
 }
 
 /**
@@ -168,6 +191,10 @@ function closeAddAssignmentModal() {
     document.getElementById('add-assignment-form').reset();
     document.getElementById('deadline-fields').style.display = 'none';
     document.getElementById('time-field').style.display = 'none';
+    
+    if (assignmentAutocomplete) {
+        assignmentAutocomplete.closeList();
+    }
 }
 
 /**

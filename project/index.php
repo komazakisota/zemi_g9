@@ -50,11 +50,6 @@ if (is_logged_in()) {
                 アカウントをお持ちでない方は <a href="register.php">こちら</a>
             </p>
             
-            <div class="test-account-info">
-                <p><strong>テストアカウント:</strong></p>
-                <p>Email: admin@university.ac.jp</p>
-                <p>Password: admin123</p>
-            </div>
         </div>
     </div>
     

@@ -1,0 +1,65 @@
+/**
+ * オートコンプリートのCSS - ダークテーマ
+ */
+
+.autocomplete-items {
+    position: absolute;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    z-index: 1001;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.autocomplete-items div {
+    padding: 10px 16px;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.autocomplete-items div:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.autocomplete-items div:hover,
+.autocomplete-items div.autocomplete-active {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(74, 144, 226, 0.1));
+    border-left: 3px solid var(--accent-primary);
+}
+
+.autocomplete-items div strong {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+/* スクロールバー */
+.autocomplete-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.autocomplete-items::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.autocomplete-items::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.autocomplete-items::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+}
+
+/* 入力フィールドのラッパー */
+.autocomplete-wrapper {
+    position: relative;
+}

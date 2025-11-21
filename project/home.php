@@ -22,6 +22,7 @@ $username = get_current_username();
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/autocomplete.css">
 </head>
 <body>
     <!-- ヘッダー -->
@@ -117,8 +118,10 @@ $username = get_current_username();
                 <form id="add-course-form">
                     <div class="form-group">
                         <label for="course-name">授業名 *</label>
-                        <input type="text" id="course-name" name="course_name" required
-                               placeholder="例: 2025_web-db">
+                        <div class="autocomplete-wrapper">
+                            <input type="text" id="course-name" name="course_name" required
+                            placeholder="例: 2025_web-db" autocomplete="off">
+                        </div>
                     </div>
                     
                 </form>
@@ -163,8 +166,10 @@ $username = get_current_username();
                 <form id="add-assignment-form">
                     <div class="form-group">
                         <label for="assignment-name">課題名 *</label>
-                        <input type="text" id="assignment-name" name="assignment_name" required
-                               placeholder="例: 最終課題">
+                        <div class="autocomplete-wrapper">
+                            <input type="text" id="assignment-name" name="assignment_name" required
+                                   placeholder="例: 最終課題" autocomplete="off">
+                        </div>
                     </div>
                     
                     <div class="form-group">
@@ -281,6 +286,7 @@ $username = get_current_username();
         </div>
     </div>
 
+    <script src="js/autocomplete.js"></script>
     <script src="js/courses.js"></script>
     <script src="js/years.js"></script>
     <script src="js/assignments.js"></script>

@@ -27,12 +27,12 @@ $username = get_current_username();
     <!-- ヘッダー -->
     <header class="header">
         <div class="header-left">
-            <h1 class="app-title">課題管理システム</h1>
+            <h1 class="app-title">DS授業・課題管理サイト</h1>
         </div>
         <div class="header-center">
             <nav class="tabs">
-                <a href="home.php" class="tab">Home</a>
-                <a href="class-evaluation.php" class="tab active">Class Evaluation</a>
+                <a href="home.php" class="tab">ホーム</a>
+                <a href="class-evaluation.php" class="tab active">授業評価</a>
             </nav>
         </div>
         <div class="header-right">

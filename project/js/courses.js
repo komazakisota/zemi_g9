@@ -99,16 +99,49 @@ function selectCourse(courseId) {
 /**
  * 授業追加モーダルを開く
  */
-function openAddCourseModal() {
+async function openAddCourseModal() {
+    console.log('openAddCourseModal called'); // デバッグ
     document.getElementById('add-course-modal').classList.add('active');
+    
+    // 授業名の候補を取得
+    try {
+        console.log('Fetching course names...'); // デバッグ
+        const response = await fetch('api/courses/get_all_course_names.php');
+        console.log('Response:', response); // デバッグ
+        
+        const data = await response.json();
+        console.log('Data:', data); // デバッグ
+        
+        if (data.success && data.course_names.length > 0) {
+            const courseInput = document.getElementById('course-name');
+            console.log('Course input:', courseInput); // デバッグ
+            
+            if (courseAutocomplete) {
+                courseAutocomplete.updateSuggestions(data.course_names);
+            } else {
+                console.log('Creating new Autocomplete...'); // デバッグ
+                courseAutocomplete = new Autocomplete(courseInput, data.course_names);
+                console.log('courseAutocomplete created:', courseAutocomplete); // デバッグ
+            }
+        } else {
+            console.log('No course names found or API failed'); // デバッグ
+        }
+    } catch (error) {
+        console.error('Error loading course names:', error);
+    }
 }
 
 /**
  * 授業追加モーダルを閉じる
  */
+// 変更後
 function closeAddCourseModal() {
     document.getElementById('add-course-modal').classList.remove('active');
     document.getElementById('add-course-form').reset();
+    
+    if (courseAutocomplete) {
+        courseAutocomplete.closeList();
+    }
 }
 
 /**
