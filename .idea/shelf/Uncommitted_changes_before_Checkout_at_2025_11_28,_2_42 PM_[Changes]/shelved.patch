@@ -1,0 +1,142 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"d04bd6c5-98ec-42d8-893a-84c621b652ed\" name=\"Changes\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"develop\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"SWAP_SIDES_IN_COMPARE_BRANCHES\" value=\"true\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"Konnotakuto\"\n  }\n}]]></component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/komazakisota/zemi_g9.git\",\n    \"accountId\": \"ad3ec48c-b337-413b-aa2c-1f4f635fa5a9\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"customColor\": \"\",\n  \"associatedIndex\": 3\n}]]></component>\n  <component name=\"ProjectId\" id=\"365jeWIR676X8f3DrbyadhYRo6j\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"git-widget-placeholder\": \"dev__konno\",\n    \"last_opened_file_path\": \"/Users/konnotakuto/Seminar_I/zemi_g9\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.27397.106\" />\n        <option value=\"bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"d04bd6c5-98ec-42d8-893a-84c621b652ed\" name=\"Changes\" comment=\"\" />\n      <created>1764303421556</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1764303421556</updated>\n      <workItem from=\"1764303422673\" duration=\"1931000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"github-copilot-workspace\">\n    <instructionFileLocations>\n      <option value=\".github/instructions\" />\n    </instructionFileLocations>\n    <promptFileLocations>\n      <option value=\".github/prompts\" />\n    </promptFileLocations>\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0fc0a6f6cc641ddfdae92e7afa8344b5dd0f8d4d)
++++ b/.idea/workspace.xml	(date 1764308257857)
+@@ -4,13 +4,32 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d04bd6c5-98ec-42d8-893a-84c621b652ed" name="Changes" comment="" />
++    <list default="true" id="d04bd6c5-98ec-42d8-893a-84c621b652ed" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/simple-todo/profile.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/simple-todo/profile.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/simple-todo/setup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/simple-todo/setup.sql" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="Git.Settings">
++    <favorite-branches>
++      <branch-storage>
++        <map>
++          <entry type="LOCAL">
++            <value>
++              <list>
++                <branch-info repo="$PROJECT_DIR$" source="develop" />
++                <branch-info repo="$PROJECT_DIR$" source="dev_konno" />
++              </list>
++            </value>
++          </entry>
++        </map>
++      </branch-storage>
++    </favorite-branches>
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+         <entry key="$PROJECT_DIR$" value="develop" />
+@@ -19,22 +38,25 @@
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
+-    "state": "OPEN",
+-    "assignee": "Konnotakuto"
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;Konnotakuto&quot;
+   }
+-}]]></component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "https://github.com/komazakisota/zemi_g9.git",
+-    "accountId": "ad3ec48c-b337-413b-aa2c-1f4f635fa5a9"
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/komazakisota/zemi_g9.git&quot;,
++    &quot;accountId&quot;: &quot;ad3ec48c-b337-413b-aa2c-1f4f635fa5a9&quot;
+   }
+-}]]></component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "customColor": "",
+-  "associatedIndex": 3
+-}]]></component>
++}</component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="file://$PROJECT_DIR$/simple-todo/profile.php" root0="FORCE_HIGHLIGHTING" />
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;customColor&quot;: &quot;&quot;,
++  &quot;associatedIndex&quot;: 3
++}</component>
+   <component name="ProjectId" id="365jeWIR676X8f3DrbyadhYRo6j" />
+   <component name="ProjectLevelVcsManager">
+     <ConfirmationsSetting value="1" id="Add" />
+@@ -45,8 +67,10 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "JavaScript Debug.profile.html.executor": "Run",
+     "ModuleVcsDetector.initialDetectionPerformed": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+     "RunOnceActivity.git.unshallow": "true",
+     "git-widget-placeholder": "dev__konno",
+     "last_opened_file_path": "/Users/konnotakuto/Seminar_I/zemi_g9",
+@@ -55,9 +79,20 @@
+     "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
++    "settings.editor.selected.configurable": "preferences.pluginManager",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
++  <component name="RunManager">
++    <configuration name="profile.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/zemi_g9/simple-todo/profile.html" useBuiltInWebServerPort="true">
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="JavaScript Debug.profile.html" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+@@ -73,12 +108,26 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1764303421556</updated>
+-      <workItem from="1764303422673" duration="1931000" />
++      <workItem from="1764303422673" duration="3365000" />
++      <workItem from="1764306971383" duration="1278000" />
++    </task>
++    <task id="LOCAL-00001" summary="deleted">
++      <option name="closed" value="true" />
++      <created>1764305768950</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1764305768950</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="deleted" />
++    <option name="LAST_COMMIT_MESSAGE" value="deleted" />
+   </component>
+   <component name="github-copilot-workspace">
+     <instructionFileLocations>

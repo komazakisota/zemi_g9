@@ -1,0 +1,98 @@
+Index: simple-todo/profile.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/simple-todo/profile.html b/simple-todo/profile.html
+new file mode 100644
+--- /dev/null	(date 1764308394212)
++++ b/simple-todo/profile.html	(date 1764308394212)
+@@ -0,0 +1,13 @@
++<!doctype html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport"
++          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
++    <meta http-equiv="X-UA-Compatible" content="ie=edge">
++    <title>Document</title>
++</head>
++<body>
++
++</body>
++</html>
+\ No newline at end of file
+Index: simple-todo/setup.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>## \uD83D\uDDC4\uFE0F データベース構造（超シンプル！2テーブルだけ）\n\n### テーブル1: users（ユーザー情報）\n\n| カラム名 | 型 | 説明 |\n|---------|-----|------|\n| user_id | SERIAL PRIMARY KEY | ユーザーID（自動採番） |\n| email | VARCHAR(255) UNIQUE | メールアドレス |\n| password_hash | VARCHAR(255) | パスワード（ハッシュ化） |\n| username | VARCHAR(100) | ユーザー名 |\n| created_at | TIMESTAMP | 登録日時 |\n\n### テーブル2: todos（Todo情報）\n\n| カラム名 | 型 | 説明 |\n|---------|-----|------|\n| todo_id | SERIAL PRIMARY KEY | TodoID（自動採番） |\n| user_id | INTEGER | ユーザーID（外部キー） |\n| title | VARCHAR(255) | Todoのタイトル |\n| deadline | DATE | 期限 |\n| is_completed | BOOLEAN | 完了フラグ |\n| created_at | TIMESTAMP | 作成日時 |\n\n**リレーション**: users.user_id ← todos.user_id（1対多）
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/simple-todo/setup.sql b/simple-todo/setup.sql
+--- a/simple-todo/setup.sql	(revision 0fc0a6f6cc641ddfdae92e7afa8344b5dd0f8d4d)
++++ b/simple-todo/setup.sql	(date 1764306642190)
+@@ -1,24 +1,42 @@
+-## 🗄️ データベース構造（超シンプル！2テーブルだけ）
++-- ## 🗄️ データベース構造（超シンプル！2テーブルだけ）
++
++-- ### テーブル1: users（ユーザー情報）
+ 
+-### テーブル1: users（ユーザー情報）
++-- | カラム名 | 型 | 説明 |
++-- |---------|-----|------|
++-- | user_id | SERIAL PRIMARY KEY | ユーザーID（自動採番） |
++-- | email | VARCHAR(255) UNIQUE | メールアドレス |
++-- | password_hash | VARCHAR(255) | パスワード（ハッシュ化） |
++-- | username | VARCHAR(100) | ユーザー名 |
++-- | created_at | TIMESTAMP | 登録日時 |
+ 
+-| カラム名 | 型 | 説明 |
+-|---------|-----|------|
+-| user_id | SERIAL PRIMARY KEY | ユーザーID（自動採番） |
+-| email | VARCHAR(255) UNIQUE | メールアドレス |
+-| password_hash | VARCHAR(255) | パスワード（ハッシュ化） |
+-| username | VARCHAR(100) | ユーザー名 |
+-| created_at | TIMESTAMP | 登録日時 |
++-- ### テーブル2: todos（Td情報）
+ 
+-### テーブル2: todos（Todo情報）
++-- | カラム名 | 型 | 説明 |
++-- |---------|-----|------|
++-- | todo_id | SERIAL PRIMARY KEY | TodoID（自動採番） |
++-- | user_id | INTEGER | ユーザーID（外部キー） |
++-- | title | VARCHAR(255) | Tdのタイトル |
++-- | deadline | DATE | 期限 |
++-- | is_completed | BOOLEAN | 完了フラグ |
++-- | created_at | TIMESTAMP | 作成日時 |
+ 
+-| カラム名 | 型 | 説明 |
+-|---------|-----|------|
+-| todo_id | SERIAL PRIMARY KEY | TodoID（自動採番） |
+-| user_id | INTEGER | ユーザーID（外部キー） |
+-| title | VARCHAR(255) | Todoのタイトル |
+-| deadline | DATE | 期限 |
+-| is_completed | BOOLEAN | 完了フラグ |
+-| created_at | TIMESTAMP | 作成日時 |
++-- **リレーション**: users.user_id ← todos.user_id（1対多）
+ 
+-**リレーション**: users.user_id ← todos.user_id（1対多）
+\ No newline at end of file
++
++CREATE TABLE users (
++    CREATE user_id SEREAL PRIMARY KEY,
++       email VARCHAR(255) UNIQUE,
++       password_hash VARCHAR(255),
++       username VARCHAR(100),
++       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
++);
++
++CREATE TABLE todos (
++    CREATE todo_id SERIAL PRIMARY KEY,
++       user_id INTEGER REFERENCES users(user_id),
++       title VARCHAR(255),
++       deadline DATE,
++       is_completed BOOLEAN DEFAULT FALSE,
++       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
++);
+\ No newline at end of file
