@@ -53,8 +53,13 @@ function renderCourseList() {
     
     courseList.innerHTML = courses.map(course => {
         const avgRating = parseFloat(course.avg_rating) || 0;
+        
+        // ★★★ 修正箇所: 評価が2.0以下の場合に low-rating クラスを付与 ★★★
+        const lowRatingClass = avgRating > 0 && avgRating <= 2.0 ? ' low-rating' : ''; 
+        // ★★★ 修正箇所 終わり ★★★
+
         return `
-            <div class="course-item ${course.course_id === selectedCourseId ? 'active' : ''}" 
+            <div class="course-item ${course.course_id === selectedCourseId ? 'active' : ''}${lowRatingClass}" 
                  data-course-id="${course.course_id}"
                  draggable="true"
                  onclick="selectCourse(${course.course_id})">

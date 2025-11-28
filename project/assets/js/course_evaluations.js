@@ -55,8 +55,13 @@ function renderCourseEvaluationList() {
         const ratingStars = avgRating > 0 ? '★'.repeat(Math.round(avgRating)) + '☆'.repeat(5 - Math.round(avgRating)) : '☆☆☆☆☆';
         const hasEvaluated = course.has_my_evaluation;
         
+        // ★★★ 修正箇所: 平均評価が2.0以下の場合に low-rating クラスを付与 ★★★
+        // avgRating > 0 の条件は、評価件数が0件（avgRatingが0）の場合は赤くしないためのものです。
+        const lowRatingClass = avgRating > 0 && avgRating <= 2.0 ? ' low-rating' : ''; 
+        // ★★★ 修正箇所 終わり ★★★
+        
         return `
-            <div class="course-evaluation-card" onclick="openCourseEvaluation(${course.course_id}, '${escapeHtml(course.course_name)}')">
+            <div class="course-evaluation-card${lowRatingClass}" onclick="openCourseEvaluation(${course.course_id}, '${escapeHtml(course.course_name)}')">
                 <h3>${escapeHtml(course.course_name)}</h3>
                 <div class="course-rating-display">
                     <span class="course-stars">${ratingStars}</span>

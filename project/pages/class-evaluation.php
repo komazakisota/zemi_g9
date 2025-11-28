@@ -31,7 +31,7 @@ $username = get_current_username();
         </div>
         <div class="header-center">
             <nav class="tabs">
-                <a href="home.php" class="tab">ホーム</a>
+                <a href="home.php" class="tab">課題管理</a>
                 <a href="class-evaluation.php" class="tab active">授業評価</a>
             </nav>
         </div>

@@ -46,6 +46,13 @@
     transition: all 0.3s ease;
 }
 
+/* ★★★ 修正箇所: 正しいセレクタで授業名（.course-name）を赤文字に ★★★ */
+.course-item.low-rating .course-name {
+    color: var(--accent-danger);
+    text-shadow: 0 0 5px rgba(239, 68, 68, 0.4);
+}
+/* ★★★ 修正箇所 終わり ★★★ */
+
 .course-item:hover {
     background: rgba(74, 144, 226, 0.1);
     border-color: var(--accent-primary);
@@ -138,6 +145,7 @@
     font-size: 16px;
     color: var(--text-muted);
 }
+
 
 /* ==================== 課題エリア ==================== */
 .assignment-area {
