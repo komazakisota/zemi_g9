@@ -73,6 +73,14 @@
     margin-bottom: 12px;
 }
 
+/* ★★★ ここからが追加・変更部分 ★★★ */
+.course-evaluation-card.low-rating h3 {
+    /* --accent-dangerはcommon.cssで#ef4444と定義されています */
+    color: var(--accent-danger); 
+    text-shadow: 0 0 5px rgba(239, 68, 68, 0.4); 
+}
+/* ★★★ ここまでが追加・変更部分 ★★★ */
+
 .course-rating-display {
     display: flex;
     align-items: center;
