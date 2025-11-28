@@ -5,9 +5,9 @@
  * GET /api/courses/get_courses.php
  */
 
-require_once __DIR__ . '/../../includes/config.php';
-require_once __DIR__ . '/../../includes/session.php';
-require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../core/config.php';
+require_once __DIR__ . '/../../core/session.php';
+require_once __DIR__ . '/../../core/functions.php';
 
 // ログインチェック
 if (!is_logged_in()) {

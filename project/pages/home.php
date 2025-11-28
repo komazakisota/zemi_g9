@@ -3,9 +3,9 @@
  * Homeタブ（メイン画面）
  */
 
-require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/../core/config.php';
+require_once __DIR__ . '/../core/session.php';
+require_once __DIR__ . '/../core/functions.php';
 
 // ログインチェック
 require_login();
@@ -19,10 +19,10 @@ $username = get_current_username();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - 課題管理システム</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="css/autocomplete.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/modal.css">
+    <link rel="stylesheet" href="../assets/css/autocomplete.css">
 </head>
 <body>
     <!-- ヘッダー -->
@@ -286,12 +286,12 @@ $username = get_current_username();
         </div>
     </div>
 
-    <script src="js/autocomplete.js"></script>
-    <script src="js/courses.js"></script>
-    <script src="js/years.js"></script>
-    <script src="js/assignments.js"></script>
-    <script src="js/assignment_evaluations.js"></script>
-    <script src="js/chat.js"></script>
-    <script src="js/dragdrop.js"></script>
+    <script src="../assets/js/autocomplete.js"></script>
+    <script src="../assets/js/courses.js"></script>
+    <script src="../assets/js/years.js"></script>
+    <script src="../assets/js/assignments.js"></script>
+    <script src="../assets/js/assignment_evaluations.js"></script>
+    <script src="../assets/js/chat.js"></script>
+    <script src="../assets/js/dragdrop.js"></script>
 </body>
 </html>

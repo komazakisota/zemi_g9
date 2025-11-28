@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         try {
             // ログインAPIを呼び出し
-            const response = await fetch('api/auth/login.php', {
+            const response = await fetch('../api/auth/login.php', {
                 method: 'POST',
                 body: formData
             });

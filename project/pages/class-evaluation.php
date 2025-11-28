@@ -3,9 +3,9 @@
  * Class Evaluationタブ（授業評価画面）
  */
 
-require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/../core/config.php';
+require_once __DIR__ . '/../core/session.php';
+require_once __DIR__ . '/../core/functions.php';
 
 // ログインチェック
 require_login();
@@ -19,9 +19,9 @@ $username = get_current_username();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Evaluation - 課題管理システム</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/class-evaluation.css">
-    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/class-evaluation.css">
+    <link rel="stylesheet" href="../assets/css/modal.css">
 </head>
 <body>
     <!-- ヘッダー -->
@@ -66,6 +66,6 @@ $username = get_current_username();
         </div>
     </div>
 
-    <script src="js/course_evaluations.js"></script>
+    <script src="../assets/js/course_evaluations.js"></script>
 </body>
 </html>

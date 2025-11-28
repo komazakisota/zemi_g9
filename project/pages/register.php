@@ -3,13 +3,13 @@
  * 新規登録画面
  */
 
-require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/includes/session.php';
-require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/../core/config.php';
+require_once __DIR__ . '/../core/session.php';
+require_once __DIR__ . '/../core/functions.php';
 
 // 既にログイン済みの場合はホームへ
 if (is_logged_in()) {
-    header('Location: /home.php');
+    header('Location: home.php');
     exit;
 }
 ?>
@@ -19,8 +19,8 @@ if (is_logged_in()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新規登録 - 課題管理システム</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
     <div class="login-container">
@@ -65,6 +65,6 @@ if (is_logged_in()) {
         </div>
     </div>
     
-    <script src="js/register.js"></script>
+    <script src="../assets/js/register.js"></script>
 </body>
 </html>

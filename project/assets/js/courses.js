@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 async function loadCourses() {
     try {
-        const response = await fetch('api/courses/get_courses.php');
+        const response = await fetch('../api/courses/get_courses.php');
         const data = await response.json();
         
         if (data.success) {
@@ -106,7 +106,7 @@ async function openAddCourseModal() {
     // 授業名の候補を取得
     try {
         console.log('Fetching course names...'); // デバッグ
-        const response = await fetch('api/courses/get_all_course_names.php');
+        const response = await fetch('../api/courses/get_all_course_names.php');
         console.log('Response:', response); // デバッグ
         
         const data = await response.json();
@@ -152,7 +152,7 @@ async function addCourse() {
     const formData = new FormData(form);
     
     try {
-        const response = await fetch('api/courses/add_course.php', {
+        const response = await fetch('../api/courses/add_course.php', {
             method: 'POST',
             body: formData
         });

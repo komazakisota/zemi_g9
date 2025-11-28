@@ -19,7 +19,7 @@ async function openChatModal() {
     
     try {
         // トークルームIDを取得
-        const response = await fetch(`api/chat/get_chat_room.php?course_year_id=${selectedYearId}`);
+        const response = await fetch(`../api/chat/get_chat_room.php?course_year_id=${selectedYearId}`);
         const data = await response.json();
         
         if (data.success) {
@@ -65,7 +65,7 @@ async function loadChatMessages() {
     if (!currentChatRoomId) return;
     
     try {
-        const response = await fetch(`api/chat/get_messages.php?chat_room_id=${currentChatRoomId}`);
+        const response = await fetch(`../api/chat/get_messages.php?chat_room_id=${currentChatRoomId}`);
         const data = await response.json();
         
         if (data.success) {
@@ -125,7 +125,7 @@ async function sendMessage() {
     formData.append('message', message);
     
     try {
-        const response = await fetch('api/chat/send_message.php', {
+        const response = await fetch('../api/chat/send_message.php', {
             method: 'POST',
             body: formData
         });

@@ -7,9 +7,9 @@
  * 指定された授業の、指定された年度以前の全課題名を取得
  */
 
-require_once __DIR__ . '/../../includes/config.php';
-require_once __DIR__ . '/../../includes/session.php';
-require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../core/config.php';
+require_once __DIR__ . '/../../core/session.php';
+require_once __DIR__ . '/../../core/functions.php';
 
 // ログインチェック
 if (!is_logged_in()) {

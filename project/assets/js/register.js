@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         try {
             // 登録APIを呼び出し
-            const response = await fetch('api/auth/register.php', {
+            const response = await fetch('../api/auth/register.php', {
                 method: 'POST',
                 body: formData
             });

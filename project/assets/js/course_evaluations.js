@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 async function loadCourseEvaluations() {
     try {
-        const response = await fetch('api/course_evaluations/get_course_evaluations.php');
+        const response = await fetch('../api/course_evaluations/get_course_evaluations.php');
         const data = await response.json();
         
         if (data.success) {
@@ -79,7 +79,7 @@ async function openCourseEvaluation(courseId, courseName) {
     document.getElementById('modal-body').innerHTML = '<p class="loading-text">読み込み中...</p>';
     
     try {
-        const response = await fetch(`api/course_evaluations/get_course_detail.php?course_id=${courseId}`);
+        const response = await fetch(`../api/course_evaluations/get_course_detail.php?course_id=${courseId}`);
         const data = await response.json();
         
         if (data.success) {
@@ -208,7 +208,7 @@ async function submitCourseEvaluation(courseId) {
     formData.append('comment', comment);
     
     try {
-        const response = await fetch('api/course_evaluations/add_course_evaluation.php', {
+        const response = await fetch('../api/course_evaluations/add_course_evaluation.php', {
             method: 'POST',
             body: formData
         });
@@ -237,7 +237,7 @@ async function deleteCourseEvaluation(courseId) {
     }
     
     try {
-        const response = await fetch('api/course_evaluations/delete_course_evaluation.php', {
+        const response = await fetch('../api/course_evaluations/delete_course_evaluation.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

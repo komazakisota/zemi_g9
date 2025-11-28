@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 async function loadYears(courseId) {
     try {
-        const response = await fetch(`api/years/get_years.php?course_id=${courseId}`);
+        const response = await fetch(`../api/years/get_years.php?course_id=${courseId}`);
         const data = await response.json();
         
         if (data.success) {
@@ -128,7 +128,7 @@ async function addYear() {
     formData.append('course_id', selectedCourseId);
     
     try {
-        const response = await fetch('api/years/add_year.php', {
+        const response = await fetch('../api/years/add_year.php', {
             method: 'POST',
             body: formData
         });

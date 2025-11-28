@@ -124,7 +124,7 @@ async function saveCourseOrder() {
     }));
     
     try {
-        const response = await fetch('api/courses/reorder_courses.php', {
+        const response = await fetch('../api/courses/reorder_courses.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -157,7 +157,7 @@ async function saveAssignmentOrder() {
     }));
     
     try {
-        const response = await fetch('api/assignments/reorder_assignments.php', {
+        const response = await fetch('../api/assignments/reorder_assignments.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -46,7 +46,7 @@ function toggleDeadlineFields() {
 async function loadAssignments(courseYearId) {
     try {
         console.log('Loading assignments for course_year_id:', courseYearId);
-        const response = await fetch(`api/assignments/get_assignments.php?course_year_id=${courseYearId}`);
+        const response = await fetch(`../api/assignments/get_assignments.php?course_year_id=${courseYearId}`);
         const data = await response.json();
 
         console.log('API response:', data);
@@ -252,7 +252,7 @@ async function addAssignment() {
     }
     
     try {
-        const response = await fetch('api/assignments/add_assignment.php', {
+        const response = await fetch('../api/assignments/add_assignment.php', {
             method: 'POST',
             body: formData
         });
@@ -301,7 +301,7 @@ async function resetAssignmentOrder() {
     }
     
     try {
-        const response = await fetch('api/assignments/reset_assignment_order.php', {
+        const response = await fetch('../api/assignments/reset_assignment_order.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -5,9 +5,9 @@
  * GET /api/assignments/get_assignments.php?course_year_id=1
  */
 
-require_once __DIR__ . '/../../includes/config.php';
-require_once __DIR__ . '/../../includes/session.php';
-require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../core/config.php';
+require_once __DIR__ . '/../../core/session.php';
+require_once __DIR__ . '/../../core/functions.php';
 
 // ログインチェック
 if (!is_logged_in()) {

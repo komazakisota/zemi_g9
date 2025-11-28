@@ -81,7 +81,7 @@ async function submitEvaluation() {
     
     try {
         // 評価を投稿
-        const evalResponse = await fetch('api/assignment_evaluations/add_evaluation.php', {
+        const evalResponse = await fetch('../api/assignment_evaluations/add_evaluation.php', {
             method: 'POST',
             body: formData
         });
@@ -97,7 +97,7 @@ async function submitEvaluation() {
         const completeFormData = new FormData();
         completeFormData.append('assignment_id', assignmentId);
         
-        const completeResponse = await fetch('api/assignments/complete_assignment.php', {
+        const completeResponse = await fetch('../api/assignments/complete_assignment.php', {
             method: 'POST',
             body: completeFormData
         });
@@ -132,7 +132,7 @@ async function showEvaluationDetail(assignmentId) {
     
     try {
         // 課題情報と評価一覧を取得
-        const response = await fetch(`api/assignment_evaluations/get_evaluations.php?assignment_id=${assignmentId}`);
+        const response = await fetch(`../api/assignment_evaluations/get_evaluations.php?assignment_id=${assignmentId}`);
         const data = await response.json();
         
         if (!data.success) {
