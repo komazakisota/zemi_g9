@@ -73,6 +73,13 @@
     margin-bottom: 12px;
 }
 
+/* ★★★ 追加・変更部分 ★★★ */
+.course-evaluation-card.low-rating h3 {
+    color: var(--accent-danger); 
+    text-shadow: 0 0 5px rgba(239, 68, 68, 0.4); 
+}
+/* ★★★ 追加・変更部分 終わり ★★★ */
+
 .course-rating-display {
     display: flex;
     align-items: center;
