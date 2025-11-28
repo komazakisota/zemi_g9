@@ -1,0 +1,470 @@
+/**
+ * HomeタブのCSS - ダークテーマ
+ */
+
+/* ==================== メインコンテナ ==================== */
+.main-container {
+    display: flex;
+    height: calc(100vh - 72px);
+    background: var(--bg-primary);
+}
+
+/* ==================== サイドバー ==================== */
+.sidebar {
+    width: 280px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.course-list {
+    padding: 12px;
+}
+
+.course-item {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: rgba(17, 34, 64, 0.6);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: move;
+    transition: all 0.3s ease;
+}
+
+.course-item:hover {
+    background: rgba(74, 144, 226, 0.1);
+    border-color: var(--accent-primary);
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.2);
+}
+
+.course-item.active {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15), rgba(74, 144, 226, 0.15));
+    border-left: 4px solid var(--accent-primary);
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.3);
+}
+
+.course-item.dragging {
+    opacity: 0.5;
+}
+
+.course-name {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.course-rating {
+    font-size: 12px;
+    color: var(--accent-warning);
+    filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.5));
+}
+
+/* ==================== メインコンテンツ ==================== */
+.main-content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.control-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.form-group-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group-inline label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.form-control {
+    padding: 8px 12px;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+}
+
+.initial-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+/* ==================== 課題エリア ==================== */
+.assignment-area {
+    margin-top: 24px;
+}
+
+.assignment-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-primary);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+}
+
+.assignment-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.assignment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ==================== 課題カード ==================== */
+.assignment-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: move;
+    transition: all 0.3s ease;
+}
+
+.assignment-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 217, 255, 0.25);
+    transform: translateY(-2px);
+    border-color: var(--accent-primary);
+}
+
+.assignment-card.completed {
+    opacity: 0.6;
+    background: rgba(17, 34, 64, 0.4);
+}
+
+.assignment-card.dragging {
+    opacity: 0.5;
+}
+
+.assignment-info {
+    flex: 1;
+}
+
+.assignment-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.assignment-icon {
+    font-size: 20px;
+}
+
+.assignment-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.assignment-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.assignment-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-warning);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.assignment-rating:hover {
+    color: #fbbf24;
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
+}
+
+.assignment-deadline {
+    color: var(--text-secondary);
+}
+
+.assignment-deadline.overdue {
+    color: var(--accent-danger);
+    font-weight: 600;
+}
+
+.assignment-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* ==================== チャット ==================== */
+.modal-large {
+    max-width: 700px;
+    max-height: 80vh;
+}
+
+.chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    padding: 16px;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.chat-message {
+    margin-bottom: 16px;
+    padding: 12px;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.chat-message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.chat-username {
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.chat-time {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.chat-text {
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 12px;
+}
+
+.chat-input-area textarea {
+    flex: 1;
+    resize: none;
+}
+
+/* ==================== 星評価入力 ==================== */
+#rating-input {
+    font-size: 32px;
+    margin: 16px 0;
+}
+
+#rating-input span {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.3));
+}
+
+#rating-input span:hover,
+#rating-input span.selected {
+    color: var(--accent-warning);
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+}
+
+.help-text {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+/* ==================== 評価詳細 ==================== */
+.evaluation-summary {
+    margin-bottom: 24px;
+    padding: 16px;
+    background: rgba(0, 217, 255, 0.05);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.evaluation-summary h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.evaluation-summary .rating-large {
+    font-size: 32px;
+    color: var(--accent-warning);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));
+}
+
+.evaluation-section {
+    margin-bottom: 24px;
+}
+
+.evaluation-section h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.evaluation-item {
+    padding: 12px;
+    margin-bottom: 12px;
+    background: rgba(17, 34, 64, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.evaluation-item.my-evaluation {
+    background: rgba(0, 217, 255, 0.1);
+    border-left: 4px solid var(--accent-primary);
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.15);
+}
+
+.evaluation-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.evaluation-user {
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.evaluation-date {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.evaluation-rating {
+    color: var(--accent-warning);
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.3));
+}
+
+.evaluation-comment {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ==================== ラジオボタン ==================== */
+.radio-group {
+    display: flex;
+    gap: 16px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+/* ==================== レスポンシブ ==================== */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+    
+    .control-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .control-left {
+        flex-direction: column;
+    }
+}
