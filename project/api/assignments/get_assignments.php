@@ -51,9 +51,21 @@ try {
     
     // データ型を変換
     foreach ($assignments as &$assignment) {
-        // is_completedをbooleanに変換（PostgreSQLは't'/'f'または true/false）
-        $assignment['is_completed'] = $assignment['is_completed'] === 't' || $assignment['is_completed'] === true;
-        
+        // is_completedをbooleanに変換（PostgreSQLは't'/'f'または true/false、NULLの場合もあり）
+        // NULLの場合はfalse（未完了）として扱う
+        if ($assignment['is_completed'] === null || $assignment['is_completed'] === '' || $assignment['is_completed'] === 'f' || $assignment['is_completed'] === false) {
+            $assignment['is_completed'] = false;
+        } else {
+            $assignment['is_completed'] = true;
+        }
+
+        // has_timeをbooleanに変換
+        if ($assignment['has_time'] === 't' || $assignment['has_time'] === true || $assignment['has_time'] === '1' || $assignment['has_time'] === 1) {
+            $assignment['has_time'] = true;
+        } else {
+            $assignment['has_time'] = false;
+        }
+
         // avg_ratingを数値に変換
         $assignment['avg_rating'] = $assignment['avg_rating'] ? (float)$assignment['avg_rating'] : null;
     }

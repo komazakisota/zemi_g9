@@ -45,12 +45,19 @@ function toggleDeadlineFields() {
  */
 async function loadAssignments(courseYearId) {
     try {
+        console.log('Loading assignments for course_year_id:', courseYearId);
         const response = await fetch(`api/assignments/get_assignments.php?course_year_id=${courseYearId}`);
         const data = await response.json();
-        
+
+        console.log('API response:', data);
+
         if (data.success) {
             assignments = data.assignments;
+            console.log('Loaded assignments:', assignments);
+            console.log('Number of assignments:', assignments.length);
             renderAssignmentList();
+        } else {
+            console.error('API error:', data.error);
         }
     } catch (error) {
         console.error('Error loading assignments:', error);
@@ -62,7 +69,10 @@ async function loadAssignments(courseYearId) {
  */
 function renderAssignmentList() {
     const assignmentList = document.getElementById('assignment-list');
-    
+
+    console.log('Rendering assignment list. Current filter:', currentFilter);
+    console.log('Total assignments:', assignments.length);
+
     // フィルタリング
     const filteredAssignments = assignments.filter(a => {
         if (currentFilter === 'incomplete') {
@@ -71,7 +81,10 @@ function renderAssignmentList() {
             return a.is_completed;
         }
     });
-    
+
+    console.log('Filtered assignments:', filteredAssignments);
+    console.log('Number of filtered assignments:', filteredAssignments.length);
+
     if (filteredAssignments.length === 0) {
         const message = currentFilter === 'incomplete' ? '未提出の課題はありません' : '完了した課題はありません';
         assignmentList.innerHTML = `<p class="empty-message">${message}</p>`;
