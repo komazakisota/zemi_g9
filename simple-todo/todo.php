@@ -60,7 +60,7 @@ $todos = $stmt->fetchAll();
             <tr>
                 <th>タイトル</th>
                 <th>期限</th>
-                <th>状態</th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
@@ -69,11 +69,16 @@ $todos = $stmt->fetchAll();
             <td><?php echo htmlspecialchars($todo['title']); ?></td>
             <td><?php echo htmlspecialchars($todo['deadline']); ?></td>
             <td>
-                <?php echo $todo['is_completed'] ? '完了' : '未完了'; ?>
+                <!-- 完了ボタン -->
+                <button class="complete-btn"> <?php echo $todo['is_completed'] ? '未完了に戻す' : '完了'; ?> </button>
+                <!-- 削除ボタン -->
+                <button class="delete-btn">削除</button>
             </td>
         </tr>
     <?php endforeach; ?>
         </tbody>
     </table>
+    <script src = "simple-todo/script.js"></script>
+        
 </body>
 </html>
