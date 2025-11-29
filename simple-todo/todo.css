@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+/* =========================================
+   全体設定 (ダークモードベース)
+   ========================================= */
+body {
+    background-color: #1e1e1e; /* 濃いグレー背景 */
+    color: #e0e0e0;            /* 白っぽい文字 */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* コンテナ（中央寄せ） */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #252526; /* ボディより少し明るいグレー */
+    padding: 40px;
+    border-radius: 12px;       /* 角丸 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* 影 */
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   入力フォームエリア
+   ========================================= */
+.input-area {
+    background-color: #2d2d30;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-end; /* 下揃え */
+    flex-wrap: wrap;       /* スマホ対応 */
+    border: 1px solid #3e3e42;
+}
+
+/* ラベルを見やすく */
+label {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+/* 入力欄のデザイン */
+input[type="text"],
+input[type="date"] {
+    background-color: #1e1e1e;
+    border: 1px solid #555;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    border-color: #00e5ff; /* フォーカス時にシアンに光る */
+}
+
+/* 追加ボタン */
+button[type="submit"] {
+    background-color: #00e5ff; /* シアン */
+    color: #1e1e1e;            /* 文字は黒 */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #00b8cc;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4); /* 光る演出 */
+}
+
+/* =========================================
+   テーブル (リスト) デザイン
+   ========================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #3e3e42;
+    color: #888;
+    font-size: 14px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    vertical-align: middle;
+}
+
+/* 行にマウスが乗った時 */
+tr:hover td {
+    background-color: #2d2d30;
+}
+
+/* =========================================
+   操作ボタン (完了・削除)
+   ========================================= */
+.complete-btn {
+    background: transparent;
+    border: 1px solid #00e5ff; /* シアンの枠線 */
+    color: #00e5ff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.complete-btn:hover {
+    background-color: #00e5ff;
+    color: #1e1e1e;
+}
+
+.delete-btn {
+    background: transparent;
+    border: 1px solid #ff4081; /* ピンクの枠線 */
+    color: #ff4081;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 8px;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #ff4081;
+    color: white;
+}
